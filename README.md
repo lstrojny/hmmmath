@@ -5,7 +5,7 @@ Delicious math component for PHP
 
 ## Fibonacci number sequences
 
-```
+```php
 <?php
 use hmmmath\Fibonacci\FibonacciFactory;
 
