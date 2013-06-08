@@ -1,0 +1,17 @@
+language: php
+
+php:
+  - 5.4
+  - 5.5
+
+before_script:
+  - wget http://getcomposer.org/composer.phar
+  - php composer.phar install --dev --no-interaction
+
+script:
+  - ./vendor/bin/phpcs --standard=vendor/internations/kodierungsregelwerksammlung/ruleset.xml ./src/
+  - phpunit
+
+notifications:
+  email:
+    - lars@strojny.net
