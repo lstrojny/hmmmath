@@ -56,7 +56,7 @@ class InvalidArgumentException extends BaseInvalidArgumentException
 
     private static function getSpecializationOfValue($value, $type)
     {
-        if (!is_object($type)) {
+        if ($type !== 'object') {
             return '';
         }
 
