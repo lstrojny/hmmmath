@@ -34,10 +34,10 @@ class InvalidArgumentException extends BaseInvalidArgumentException
         }
 
         $validationMethod = 'validate' . $type . $specialization;
-        if (is_callable(['static', $validationMethod])) {
-            return static::{$validationMethod}($value);
+        if (!is_callable(['static', $validationMethod])) {
+            return false;
         }
-        return false;
+        return static::{$validationMethod}($value);
     }
 
     private static function validateIntegerUnsigned($value)
