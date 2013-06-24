@@ -54,4 +54,48 @@ class FibonacciSequenceTest extends AbstractTestCase
             'Retry to test rewind()'
         );
     }
+
+    public function testArrayAccessOnSequence()
+    {
+        $sequence = new FibonacciSequence();
+
+        $this->assertTrue(isset($sequence[0]));
+        $this->assertSame(0, $sequence[0]);
+        $this->assertTrue(isset($sequence[1]));
+        $this->assertSame(1, $sequence[1]);
+        $this->assertTrue(isset($sequence[2]));
+        $this->assertSame(1, $sequence[2]);
+        $this->assertTrue(isset($sequence[3]));
+        $this->assertSame(2, $sequence[3]);
+        $this->assertTrue(isset($sequence[4]));
+        $this->assertSame(3, $sequence[4]);
+        $this->assertTrue(isset($sequence[5]));
+        $this->assertSame(5, $sequence[5]);
+        $this->assertTrue(isset($sequence[6]));
+        $this->assertSame(8, $sequence[6]);
+        $this->assertTrue(isset($sequence[7]));
+        $this->assertSame(13, $sequence[7]);
+    }
+
+    public function testExceptionThrownOnOffsetSet()
+    {
+        $sequence = new FibonacciSequence();
+
+        $this->setExpectedException(
+            'hmmmath\Exception\BadMethodCallException',
+            'Bad method call to hmmmath\Fibonacci\FibonacciSequence::offsetSet()'
+        );
+        $sequence[0] = 'test';
+    }
+
+    public function testExceptionIsThrownOnOffsetUnset()
+    {
+        $sequence = new FibonacciSequence();
+
+        $this->setExpectedException(
+            'hmmmath\Exception\BadMethodCallException',
+            'Bad method call to hmmmath\Fibonacci\FibonacciSequence::offsetUnset()'
+        );
+        unset($sequence[0]);
+    }
 }
