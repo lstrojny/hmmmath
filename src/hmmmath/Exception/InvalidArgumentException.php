@@ -33,7 +33,7 @@ class InvalidArgumentException extends BaseInvalidArgumentException
             return true;
         }
 
-        $validationMethod = 'validate' . $type . $specialization;
+        $validationMethod = 'validate' . $type . strtr($specialization, ['.' => '']);
         if (!is_callable(['static', $validationMethod])) {
             return false;
         }
@@ -43,6 +43,11 @@ class InvalidArgumentException extends BaseInvalidArgumentException
     private static function validateIntegerUnsigned($value)
     {
         return $value >= 0;
+    }
+
+    private static function validateDouble01($value)
+    {
+        return $value >= 0 && $value <= 1;
     }
 
     private static function getSpecializationOfType($type, $specialization)
