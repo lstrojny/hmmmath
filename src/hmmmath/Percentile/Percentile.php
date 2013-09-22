@@ -35,7 +35,7 @@ final class Percentile
     {
         $nearestRank = static::getNearestRank($numbers, $percentile);
 
-        return static::getValue($numbers, $nearestRank, 'array_pop');
+        return static::getValue($numbers, $nearestRank, 'end');
     }
 
     private static function getValue(array $numbers, $key, $fallback)
