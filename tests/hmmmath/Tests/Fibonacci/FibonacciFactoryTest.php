@@ -12,7 +12,7 @@ class FibonacciFactoryTest extends AbstractTestCase
         $sequence = FibonacciFactory::sequence();
         $this->assertInstanceOf('hmmmath\Fibonacci\FibonacciSequence', $sequence);
         $this->assertSame(
-            array(0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377),
+            [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377],
             iterator_to_array(new LimitIterator($sequence, 0, 15)),
             'Simple sequence'
         );
@@ -23,7 +23,7 @@ class FibonacciFactoryTest extends AbstractTestCase
         $sequence = FibonacciFactory::sequence(0, 2);
         $this->assertInstanceOf('hmmmath\Fibonacci\FibonacciSequence', $sequence);
         $this->assertSame(
-            array(0, 2, 2, 4, 6, 10, 16, 26, 42, 68, 110, 178, 288, 466, 754),
+            [0, 2, 2, 4, 6, 10, 16, 26, 42, 68, 110, 178, 288, 466, 754],
             iterator_to_array(new LimitIterator($sequence, 0, 15)),
             'Sequence x2'
         );
@@ -34,12 +34,12 @@ class FibonacciFactoryTest extends AbstractTestCase
         $sequence = FibonacciFactory::sequence(0, 1, 5);
         $this->assertInstanceOf('LimitIterator', $sequence);
         $this->assertSame(
-            array(0, 1, 1, 2, 3),
+            [0, 1, 1, 2, 3],
             iterator_to_array($sequence),
             'Limited sequence'
         );
         $this->assertSame(
-            array(0, 1, 1, 2, 3),
+            [0, 1, 1, 2, 3],
             iterator_to_array($sequence),
             'Rewind behavior'
         );
@@ -50,12 +50,12 @@ class FibonacciFactoryTest extends AbstractTestCase
         $sequence = FibonacciFactory::sequence(0, 1, 3, 2);
         $this->assertInstanceOf('LimitIterator', $sequence);
         $this->assertSame(
-            array(2 => 1, 3 => 2, 4 => 3),
+            [2 => 1, 3 => 2, 4 => 3],
             iterator_to_array($sequence),
             'Limited sequence'
         );
         $this->assertSame(
-            array(2 => 1, 3 => 2, 4 => 3),
+            [2 => 1, 3 => 2, 4 => 3],
             iterator_to_array($sequence),
             'Rewind behavior'
         );
