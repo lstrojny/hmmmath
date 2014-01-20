@@ -6,15 +6,11 @@ php:
   - hhvm
 
 before_script:
-  - composer install --dev --no-interaction
+  - composer install
 
 script:
   - ./vendor/bin/phpcs --standard=vendor/internations/kodierungsregelwerksammlung/ruleset.xml ./src/
   - phpunit
-
-notifications:
-  email:
-    - lars@strojny.net
 
 matrix:
   allow_failures:
