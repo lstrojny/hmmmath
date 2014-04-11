@@ -1,4 +1,4 @@
-# hmmmath [![Build Status](https://travis-ci.org/lstrojny/hmmmath.svg)](https://travis-ci.org/lstrojny/hmmmath)
+# hmmmath [![Build Status](https://travis-ci.org/lstrojny/hmmmath.svg)](https://travis-ci.org/lstrojny/hmmmath) [![Dependency Status](https://www.versioneye.com/user/projects/523ed81c632bac1b1100c3bf/badge.png)](https://www.versioneye.com/user/projects/523ed81c632bac1b1100c3bf)
 
 Delicious math component for PHP
 
