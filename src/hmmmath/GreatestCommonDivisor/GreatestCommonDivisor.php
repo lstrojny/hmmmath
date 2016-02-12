@@ -41,6 +41,8 @@ final class GreatestCommonDivisor
             if ($mode === static::APPROXIMATION || ($mode === static::AUTODETECT && is_float($right))) {
                 $left = static::approximateGreatestCommonDivisor($left, $right);
             } else {
+                $left = (int) $left;
+                $right = (int) $right;
                 $left = static::euclidianGreatestCommonDivisor($left, $right);
             }
 

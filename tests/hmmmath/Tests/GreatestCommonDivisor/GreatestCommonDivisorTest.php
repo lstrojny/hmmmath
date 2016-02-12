@@ -29,6 +29,7 @@ class GreatestCommonDivisorTest extends AbstractTestCase
     {
         $this->assertSame(1, GreatestCommonDivisor::greatestCommonDivisor([10.1, 21.0], GreatestCommonDivisor::EUCLIDIAN));
         $this->assertSame(3, GreatestCommonDivisor::greatestCommonDivisor([3, 21.5, 6.1], GreatestCommonDivisor::EUCLIDIAN));
+        $this->assertSame(33, GreatestCommonDivisor::greatestCommonDivisor([33.3, 33.3, 33.4], GreatestCommonDivisor::EUCLIDIAN));
     }
 
     public function testGreatestCommonDivisorIntegerWithForcedMode()
