@@ -25,6 +25,7 @@ class FibonacciFactory
 
         InvalidArgumentException::assertParameterType(3, 'integer', $limit, 'unsigned');
         InvalidArgumentException::assertParameterType(4, 'integer', $offset, 'unsigned');
+
         if ($limit > 0) {
             $sequence = new LimitIterator($sequence, $offset, $limit);
         }

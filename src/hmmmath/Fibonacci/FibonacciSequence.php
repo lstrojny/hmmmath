@@ -59,6 +59,7 @@ class FibonacciSequence implements Iterator, ArrayAccess
     public function offsetGet($offset)
     {
         $number = $this->initial;
+
         while ($offset-- > 0) {
             $number = $number->getNext();
         }

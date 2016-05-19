@@ -34,9 +34,11 @@ class InvalidArgumentException extends BaseInvalidArgumentException
         }
 
         $validationMethod = 'validate' . $type . strtr($specialization, ['.' => '']);
+
         if (!is_callable(['static', $validationMethod])) {
             return false;
         }
+
         return static::{$validationMethod}($value);
     }
 
