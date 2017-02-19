@@ -17,5 +17,8 @@
         "psr-0": {
             "hmmmath\\": "src/"
         }
+    },
+    "require": {
+        "php": "~7"
     }
 }
