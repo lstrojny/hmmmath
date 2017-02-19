@@ -63,37 +63,29 @@ class FibonacciFactoryTest extends AbstractTestCase
 
     public function testExceptionIsThrownIfLimitIsNotAPositiveNumber()
     {
-        $this->setExpectedException(
-            'hmmmath\Exception\InvalidArgumentException',
-            'Expected parameter #3 to be of type "integer<unsigned>", "integer" given'
-        );
+        $this->expectException('hmmmath\Exception\InvalidArgumentException');
+        $this->expectExceptionMessage('Expected parameter #3 to be of type "integer<unsigned>", "integer" given');
         FibonacciFactory::sequence(0, 1, -1);
     }
 
     public function testExceptionIsThrownIfLimitIsNotAPositiveNumber_2()
     {
-        $this->setExpectedException(
-            'hmmmath\Exception\InvalidArgumentException',
-            'Expected parameter #3 to be of type "integer<unsigned>", "string" given'
-        );
+        $this->expectException('hmmmath\Exception\InvalidArgumentException');
+        $this->expectExceptionMessage('Expected parameter #3 to be of type "integer<unsigned>", "string" given');
         FibonacciFactory::sequence(0, 1, 'foo');
     }
 
     public function testExceptionIsThrownIfOffsetIsNotAPositiveNumber()
     {
-        $this->setExpectedException(
-            'hmmmath\Exception\InvalidArgumentException',
-            'Expected parameter #4 to be of type "integer<unsigned>", "integer" given'
-        );
+        $this->expectException('hmmmath\Exception\InvalidArgumentException');
+        $this->expectExceptionMessage('Expected parameter #4 to be of type "integer<unsigned>", "integer" given');
         FibonacciFactory::sequence(0, 1, 0, -1);
     }
 
     public function testExceptionIsThrownIfOffsetIsNotAPositiveNumber_2()
     {
-        $this->setExpectedException(
-            'hmmmath\Exception\InvalidArgumentException',
-            'Expected parameter #4 to be of type "integer<unsigned>", "string" given'
-        );
+        $this->expectException('hmmmath\Exception\InvalidArgumentException');
+        $this->expectExceptionMessage('Expected parameter #4 to be of type "integer<unsigned>", "string" given');
         FibonacciFactory::sequence(0, 1, 0, 'foo');
     }
 

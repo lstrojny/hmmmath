@@ -81,10 +81,9 @@ class FibonacciSequenceTest extends AbstractTestCase
     {
         $sequence = new FibonacciSequence();
 
-        $this->setExpectedException(
-            'hmmmath\Exception\BadMethodCallException',
-            'Bad method call to hmmmath\Fibonacci\FibonacciSequence::offsetSet()'
-        );
+        $this->expectException('hmmmath\Exception\BadMethodCallException');
+
+        $this->expectExceptionMessage('Bad method call to hmmmath\Fibonacci\FibonacciSequence::offsetSet()');
         $sequence[0] = 'test';
     }
 
@@ -92,10 +91,9 @@ class FibonacciSequenceTest extends AbstractTestCase
     {
         $sequence = new FibonacciSequence();
 
-        $this->setExpectedException(
-            'hmmmath\Exception\BadMethodCallException',
-            'Bad method call to hmmmath\Fibonacci\FibonacciSequence::offsetUnset()'
-        );
+        $this->expectException('hmmmath\Exception\BadMethodCallException');
+
+        $this->expectExceptionMessage('Bad method call to hmmmath\Fibonacci\FibonacciSequence::offsetUnset()');
         unset($sequence[0]);
     }
 }

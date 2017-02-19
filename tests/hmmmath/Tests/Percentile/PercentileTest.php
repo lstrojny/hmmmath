@@ -103,10 +103,8 @@ class PercentileTest extends AbstractTestCase
     /** @dataProvider getErrorDataSet */
     public function testPercentileError($percentile)
     {
-        $this->setExpectedException(
-            'hmmmath\Exception\InvalidArgumentException',
-            'Expected parameter #2 to be of type "double<0..1>"'
-        );
+        $this->expectException('hmmmath\Exception\InvalidArgumentException');
+        $this->expectExceptionMessage('Expected parameter #2 to be of type "double<0..1>"');
 
         Percentile::percentile([], $percentile);
     }

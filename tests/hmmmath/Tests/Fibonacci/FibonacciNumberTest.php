@@ -47,19 +47,15 @@ class FibonacciNumberTest extends AbstractTestCase
 
     public function testExceptionIsThrownIfCurrentNumberIsNotAnInteger()
     {
-        $this->setExpectedException(
-            'hmmmath\Exception\InvalidArgumentException',
-            'Expected parameter #1 to be of type "integer", "string" given'
-        );
+        $this->expectException('hmmmath\Exception\InvalidArgumentException');
+        $this->expectExceptionMessage('Expected parameter #1 to be of type "integer", "string" given');
         new FibonacciNumber('foo', 10);
     }
 
     public function testExceptionIsThrownIfNextNumberIsNotAnInteger()
     {
-        $this->setExpectedException(
-            'hmmmath\Exception\InvalidArgumentException',
-            'Expected parameter #2 to be of type "integer", "object<stdClass>" given'
-        );
+        $this->expectException('hmmmath\Exception\InvalidArgumentException');
+        $this->expectExceptionMessage('Expected parameter #2 to be of type "integer", "object<stdClass>" given');
         new FibonacciNumber(10, new stdClass());
     }
 }
