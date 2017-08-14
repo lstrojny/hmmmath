@@ -3,11 +3,9 @@ namespace hmmmath\GreatestCommonDivisor;
 
 final class GreatestCommonDivisor
 {
-    const AUTODETECT = 'auto';
-
-    const EUCLIDIAN = 'euclidian';
-
-    const APPROXIMATION = 'approximation';
+    public const AUTODETECT = 'auto';
+    public const EUCLIDIAN = 'euclidian';
+    public const APPROXIMATION = 'approximation';
 
     /**
      * Calculate the greatest common divisor of a list of numbers
@@ -15,11 +13,10 @@ final class GreatestCommonDivisor
      * Euclidian’s algorithm forces integers, even if you feed floats. Use approximation for floats. Default mode is
      * auto detection and selects the appropriate algorithm for the number pair at hand.
      *
-     * @param array $numbers
-     * @param string $mode
+     * @param integer[]|float[] $numbers
      * @return integer|float
      */
-    public static function greatestCommonDivisor(array $numbers, $mode = self::AUTODETECT)
+    public static function greatestCommonDivisor(array $numbers, string $mode = self::AUTODETECT)
     {
         $left = array_shift($numbers);
 
@@ -52,12 +49,12 @@ final class GreatestCommonDivisor
         return $left;
     }
 
-    private static function euclidianGreatestCommonDivisor($left, $right)
+    private static function euclidianGreatestCommonDivisor(int $left, int $right): int
     {
         return $right ? static::euclidianGreatestCommonDivisor($right, $left % $right) : $left;
     }
 
-    private static function approximateGreatestCommonDivisor($left, $right)
+    private static function approximateGreatestCommonDivisor(float $left, float $right): float
     {
         return $right ? static::approximateGreatestCommonDivisor($right, fmod($left, $right)) : $left;
     }

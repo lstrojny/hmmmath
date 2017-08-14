@@ -68,25 +68,11 @@ class FibonacciFactoryTest extends AbstractTestCase
         FibonacciFactory::sequence(0, 1, -1);
     }
 
-    public function testExceptionIsThrownIfLimitIsNotAPositiveNumber_2()
-    {
-        $this->expectException('hmmmath\Exception\InvalidArgumentException');
-        $this->expectExceptionMessage('Expected parameter #3 to be of type "integer<unsigned>", "string" given');
-        FibonacciFactory::sequence(0, 1, 'foo');
-    }
-
     public function testExceptionIsThrownIfOffsetIsNotAPositiveNumber()
     {
         $this->expectException('hmmmath\Exception\InvalidArgumentException');
         $this->expectExceptionMessage('Expected parameter #4 to be of type "integer<unsigned>", "integer" given');
         FibonacciFactory::sequence(0, 1, 0, -1);
-    }
-
-    public function testExceptionIsThrownIfOffsetIsNotAPositiveNumber_2()
-    {
-        $this->expectException('hmmmath\Exception\InvalidArgumentException');
-        $this->expectExceptionMessage('Expected parameter #4 to be of type "integer<unsigned>", "string" given');
-        FibonacciFactory::sequence(0, 1, 0, 'foo');
     }
 
     public function testCreateNumber()

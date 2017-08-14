@@ -12,14 +12,8 @@ class FibonacciFactory
      *
      * The sequence is infinite but the factory method optionally takes a third argument to limit the sequence. A fourth
      * parameter can be passed to specify an offset for the sequence.
-     *
-     * @param integer $start
-     * @param integer $increment
-     * @param integer $limit
-     * @param integer $offset
-     * @return Traversable
      */
-    public static function sequence($start = 0, $increment = 1, $limit = 0, $offset = 0)
+    public static function sequence(int $start = 0, int $increment = 1, int $limit = 0, int $offset = 0): Traversable
     {
         $sequence = new FibonacciSequence($start, $increment);
 
@@ -33,14 +27,8 @@ class FibonacciFactory
         return $sequence;
     }
 
-    /**
-     * Create fibonacci number
-     *
-     * @param integer $start
-     * @param integer $increment
-     * @return FibonacciNumber
-     */
-    public static function number($start = 0, $increment = 1)
+    /** Create fibonacci number */
+    public static function number(int $start = 0, int $increment = 1): FibonacciNumber
     {
         return new FibonacciNumber($start, $increment);
     }

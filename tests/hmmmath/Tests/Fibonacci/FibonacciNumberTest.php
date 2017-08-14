@@ -44,18 +44,4 @@ class FibonacciNumberTest extends AbstractTestCase
         $this->assertSame(70, $number->getNext()->getNext()->getNext()->getCurrent());
         $this->assertSame(110, $number->getNext()->getNext()->getNext()->getNext()->getCurrent());
     }
-
-    public function testExceptionIsThrownIfCurrentNumberIsNotAnInteger()
-    {
-        $this->expectException('hmmmath\Exception\InvalidArgumentException');
-        $this->expectExceptionMessage('Expected parameter #1 to be of type "integer", "string" given');
-        new FibonacciNumber('foo', 10);
-    }
-
-    public function testExceptionIsThrownIfNextNumberIsNotAnInteger()
-    {
-        $this->expectException('hmmmath\Exception\InvalidArgumentException');
-        $this->expectExceptionMessage('Expected parameter #2 to be of type "integer", "object<stdClass>" given');
-        new FibonacciNumber(10, new stdClass());
-    }
 }

@@ -5,20 +5,20 @@ use hmmmath\Exception\InvalidArgumentException;
 
 final class Percentile
 {
-    const NEAREST_RANK = 'nearestRank';
-
-    const LINEAR_INTERPOLATION = 'linearInterpolation';
+    public const NEAREST_RANK = 'nearestRank';
+    public const LINEAR_INTERPOLATION = 'linearInterpolation';
 
     /**
      * Calculate nth percentile of a list of numbers
      *
-     * @param number[] $numbers
-     * @param float $percentile
-     * @param string $mode
-     * @param boolean $sort
-     * @return float
+     * @param float[] $numbers
      */
-    public static function percentile(array $numbers, $percentile, $mode = self::NEAREST_RANK, $sort = true)
+    public static function percentile(
+        array $numbers,
+        float $percentile,
+        string $mode = self::NEAREST_RANK,
+        bool $sort = true
+    ): float
     {
         InvalidArgumentException::assertParameterType('2', 'double', $percentile, '0..1');
 
@@ -40,24 +40,16 @@ final class Percentile
         return $result;
     }
 
-    /**
-     * @param number[] $numbers
-     * @param float $percentile
-     * @return float
-     */
-    private static function nearestRank(array $numbers, $percentile)
+    /** @param float[] $numbers */
+    private static function nearestRank(array $numbers, float $percentile): float
     {
         $nearestRank = static::getNearestRank($numbers, $percentile);
 
         return static::getValue($numbers, $nearestRank, 'end');
     }
 
-    /**
-     * @param number[] $numbers
-     * @param float $percentile
-     * @return float
-     */
-    private static function linearInterpolation(array $numbers, $percentile)
+    /** @param float[] $numbers */
+    private static function linearInterpolation(array $numbers, float $percentile): float
     {
         $nearestRank = static::getNearestRank($numbers, $percentile);
 
@@ -73,13 +65,8 @@ final class Percentile
         return $left + $count * ($percentile * 100 - $p) / 100 * ($right - $left);
     }
 
-    /**
-     * @param number[] $numbers
-     * @param float $key
-     * @param callable $fallback
-     * @return float
-     */
-    private static function getValue(array $numbers, $key, callable $fallback)
+    /** @param float[] $numbers */
+    private static function getValue(array $numbers, float $key, callable $fallback): float
     {
         $key = (int) round($key) -  1;
         $value = isset($numbers[$key]) ? $numbers[$key] : $fallback($numbers);
@@ -87,12 +74,8 @@ final class Percentile
         return (float) $value;
     }
 
-    /**
-     * @param number[] $numbers
-     * @param float $percentile
-     * @return float
-     */
-    private static function getNearestRank(array $numbers, $percentile)
+    /** @param number[] $numbers */
+    private static function getNearestRank(array $numbers, float $percentile): float
     {
         return $percentile * count($numbers) + 1 / 2;
     }

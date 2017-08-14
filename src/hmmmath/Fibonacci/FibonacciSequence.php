@@ -16,47 +16,44 @@ class FibonacciSequence implements Iterator, ArrayAccess
     /** @var integer */
     private $key = 0;
 
-    public function __construct($start = 0, $increment = 1)
+    public function __construct(int $start = 0, int $increment = 1)
     {
         $this->number = $this->initial = new FibonacciNumber($start, $increment);
     }
 
-    /** @return integer */
-    public function current()
+    public function current(): int
     {
         return $this->number->getCurrent();
     }
 
-    /** @return integer */
-    public function key()
+    public function key(): int
     {
         return $this->key;
     }
 
-    /** @return boolean */
-    public function valid()
+    public function valid(): bool
     {
         return true;
     }
 
-    public function rewind()
+    public function rewind(): void
     {
         $this->key = 0;
         $this->number = $this->initial;
     }
 
-    public function next()
+    public function next(): void
     {
         ++$this->key;
         $this->number = $this->number->getNext();
     }
 
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool // @codingStandardsIgnoreLine
     {
         return true;
     }
 
-    public function offsetGet($offset)
+    public function offsetGet($offset): int // @codingStandardsIgnoreLine
     {
         $number = $this->initial;
 
@@ -67,12 +64,12 @@ class FibonacciSequence implements Iterator, ArrayAccess
         return $number->getCurrent();
     }
 
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void // @codingStandardsIgnoreLine
     {
         throw BadMethodCallException::invalidMethod(__CLASS__, __FUNCTION__);
     }
 
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void // @codingStandardsIgnoreLine
     {
         throw BadMethodCallException::invalidMethod(__CLASS__, __FUNCTION__);
     }

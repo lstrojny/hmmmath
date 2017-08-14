@@ -1,42 +1,25 @@
 <?php
 namespace hmmmath\Fibonacci;
 
-use hmmmath\Exception\InvalidArgumentException;
-
 class FibonacciNumber
 {
-    /** @var integer */
     private $start;
-
-    /** @var integer */
     private $increment;
 
-    /**
-     * @param integer $start
-     * @param integer $increment
-     */
-    public function __construct($start, $increment)
+    public function __construct(int $start, int $increment)
     {
-        $this->start = InvalidArgumentException::assertParameterType(1, 'integer', $start);
-        $this->increment = InvalidArgumentException::assertParameterType(2, 'integer', $increment);
+        $this->start = $start;
+        $this->increment = $increment;
     }
 
-    /**
-     * Get current number in fibonacci sequence
-     *
-     * @return integer
-     */
-    public function getCurrent()
+    /** Get current number in fibonacci sequence */
+    public function getCurrent(): int
     {
         return $this->start;
     }
 
-    /**
-     * Get next in fibonacci sequence
-     *
-     * @return FibonacciNumber
-     */
-    public function getNext()
+    /** Get next in fibonacci sequence */
+    public function getNext(): self
     {
         return new self($this->start + $this->increment, $this->start);
     }
