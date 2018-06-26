@@ -13,7 +13,7 @@ class FibonacciSequence implements Iterator, ArrayAccess
     /** @var FibonacciNumber */
     private $initial;
 
-    /** @var integer */
+    /** @var int */
     private $key = 0;
 
     public function __construct(int $start = 0, int $increment = 1)

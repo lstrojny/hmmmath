@@ -14,8 +14,7 @@ class InvalidArgumentException extends BaseInvalidArgumentException
         string $expectedType,
         $actualValue,
         ?string $specialization = null
-    )
-    {
+    ) {
         if (static::validateType($actualValue, $expectedType, $specialization)) {
             return $actualValue;
         }

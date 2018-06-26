@@ -3,7 +3,6 @@
     "description": "Collection of math related PHP functions",
     "require-dev": {
         "phpunit/phpunit": "~6",
-        "internations/kodierungsregelwerksammlung": "dev-master",
         "internations/testing-component": "dev-master"
     },
     "license": "MIT",

@@ -13,8 +13,8 @@ final class GreatestCommonDivisor
      * Euclidian’s algorithm forces integers, even if you feed floats. Use approximation for floats. Default mode is
      * auto detection and selects the appropriate algorithm for the number pair at hand.
      *
-     * @param integer[]|float[] $numbers
-     * @return integer|float
+     * @param int[]|float[] $numbers
+     * @return int|float
      */
     public static function greatestCommonDivisor(array $numbers, string $mode = self::AUTODETECT)
     {
@@ -42,8 +42,6 @@ final class GreatestCommonDivisor
                 $right = (int) $right;
                 $left = static::euclidianGreatestCommonDivisor($left, $right);
             }
-
-
         } while ($numbers);
 
         return $left;
