@@ -11,8 +11,9 @@ before_script:
   - composer install
 
 script:
-  - phpunit
+  - vendor/bin/phpunit
 
 matrix:
   allow_failures:
     - php: hhvm
+    - php: nightly
