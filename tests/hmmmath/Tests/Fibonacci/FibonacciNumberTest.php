@@ -2,10 +2,9 @@
 namespace hmmmath\Tests\Fibonacci;
 
 use hmmmath\Fibonacci\FibonacciNumber;
-use InterNations\Component\Testing\AbstractTestCase;
-use stdClass;
+use PHPUnit\Framework\TestCase;
 
-class FibonacciNumberTest extends AbstractTestCase
+class FibonacciNumberTest extends TestCase
 {
     public function testGrowLikeARabbitPopulation_Positive()
     {

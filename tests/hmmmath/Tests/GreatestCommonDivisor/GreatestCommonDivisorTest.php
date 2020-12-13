@@ -2,9 +2,9 @@
 namespace hmmmath\Tests\GreatestCommonDivisor;
 
 use hmmmath\GreatestCommonDivisor\GreatestCommonDivisor;
-use InterNations\Component\Testing\AbstractTestCase;
+use PHPUnit\Framework\TestCase;
 
-class GreatestCommonDivisorTest extends AbstractTestCase
+class GreatestCommonDivisorTest extends TestCase
 {
     public function testGreatestCommonDivisorOfIntegersWithAutoDetection()
     {

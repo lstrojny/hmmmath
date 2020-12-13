@@ -2,9 +2,9 @@
 namespace hmmmath\Tests\Percentile;
 
 use hmmmath\Percentile\Percentile;
-use InterNations\Component\Testing\AbstractTestCase;
+use PHPUnit\Framework\TestCase;
 
-class PercentileTest extends AbstractTestCase
+class PercentileTest extends TestCase
 {
     public static function getNearestRankData()
     {
