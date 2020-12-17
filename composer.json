@@ -1,10 +1,6 @@
 {
     "name": "lstrojny/hmmmath",
     "description": "Collection of math related PHP functions",
-    "require-dev": {
-        "phpunit/phpunit": "~6",
-        "internations/testing-component": "dev-master"
-    },
     "license": "MIT",
     "authors": [
         {
@@ -18,6 +14,9 @@
         }
     },
     "require": {
-        "php": "~7.1"
+        "php": "^7.2|^8.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.5"
     }
 }

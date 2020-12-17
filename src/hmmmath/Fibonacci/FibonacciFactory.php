@@ -33,15 +33,15 @@ class FibonacciFactory
         return new FibonacciNumber($start, $increment);
     }
 
-    final private function __construct()
+    private function __construct()
     {
     }
 
-    final private function __destruct()
+    private function __destruct()
     {
     }
 
-    final private function __clone()
+    private function __clone()
     {
     }
 }

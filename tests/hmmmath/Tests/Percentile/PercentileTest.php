@@ -2,9 +2,9 @@
 namespace hmmmath\Tests\Percentile;
 
 use hmmmath\Percentile\Percentile;
-use InterNations\Component\Testing\AbstractTestCase;
+use PHPUnit\Framework\TestCase;
 
-class PercentileTest extends AbstractTestCase
+class PercentileTest extends TestCase
 {
     public static function getNearestRankData()
     {
@@ -30,7 +30,7 @@ class PercentileTest extends AbstractTestCase
     public function testNearestRankDefaultMode($expectation, $percentile, $data)
     {
         $result= Percentile::percentile($data, $percentile);
-        $this->assertInternalType('float', $result);
+        $this->assertIsFloat($result);
         $this->assertSame($expectation, $result);
     }
 
@@ -38,7 +38,7 @@ class PercentileTest extends AbstractTestCase
     public function testNearestRangeExplicit($expectation, $percentile, $data)
     {
         $result= Percentile::percentile($data, $percentile, Percentile::NEAREST_RANK);
-        $this->assertInternalType('float', $result);
+        $this->assertIsFloat($result);
         $this->assertSame($expectation, $result);
     }
 
@@ -85,7 +85,7 @@ class PercentileTest extends AbstractTestCase
     {
         $result = Percentile::percentile($data, $percentile, Percentile::LINEAR_INTERPOLATION);
         $this->assertSame($expectation, $result);
-        $this->assertInternalType('float', $result);
+        $this->assertIsFloat($result);
     }
 
     public static function getErrorDataSet()

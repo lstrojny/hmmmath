@@ -2,10 +2,10 @@
 namespace hmmmath\Tests\Fibonacci;
 
 use hmmmath\Fibonacci\FibonacciFactory;
-use InterNations\Component\Testing\AbstractTestCase;
+use PHPUnit\Framework\TestCase;
 use LimitIterator;
 
-class FibonacciFactoryTest extends AbstractTestCase
+class FibonacciFactoryTest extends TestCase
 {
     public function testCreateDefaultSequence()
     {
