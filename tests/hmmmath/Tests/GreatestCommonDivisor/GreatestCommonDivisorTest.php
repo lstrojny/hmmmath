@@ -40,9 +40,9 @@ class GreatestCommonDivisorTest extends TestCase
 
     public function testINF()
     {
-        $this->assertTrue(is_infinite(GreatestCommonDivisor::greatestCommonDivisor([10, INF])));
-        $this->assertTrue(is_infinite(GreatestCommonDivisor::greatestCommonDivisor([INF, INF])));
-        $this->assertTrue(is_infinite(GreatestCommonDivisor::greatestCommonDivisor([INF, 10])));
-        $this->assertTrue(is_infinite(GreatestCommonDivisor::greatestCommonDivisor([10, INF, 10])));
+        $this->assertInfinite(GreatestCommonDivisor::greatestCommonDivisor([10, INF]));
+        $this->assertInfinite(GreatestCommonDivisor::greatestCommonDivisor([INF, INF]));
+        $this->assertInfinite(GreatestCommonDivisor::greatestCommonDivisor([INF, 10]));
+        $this->assertInfinite(GreatestCommonDivisor::greatestCommonDivisor([10, INF, 10]));
     }
 }

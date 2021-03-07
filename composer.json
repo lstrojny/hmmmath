@@ -9,8 +9,13 @@
         }
     ],
     "autoload": {
-        "psr-0": {
-            "hmmmath\\": "src/"
+        "psr-4": {
+            "hmmmath\\": "src/hmmmath"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "hmmmath\\Tests\\": "tests/hmmmath/Tests"
         }
     },
     "require": {
